@@ -1,3 +1,8 @@
 namespace StickyNotes.API.Models;
 
-public sealed record Note(int Id, string Text, string Color);
+public class Note
+{
+    public int Id { get; set; }
+    public string Content { get; set; } = string.Empty;
+    public DateTime CreatedAt { get; set; }
+}

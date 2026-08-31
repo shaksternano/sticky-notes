@@ -8,9 +8,8 @@ namespace StickyNotes.API.Controllers;
 public sealed class NotesController : ControllerBase
 {
     [HttpGet]
-    public ActionResult<IEnumerable<Note>> Get() => Ok(new[]
+    public ActionResult<IEnumerable<Note>> Get()
     {
-        new Note(1, "Welcome to Sticky Notes!", "yellow"),
-        new Note(2, "Replace this in-memory example with your persistence layer.", "blue")
-    });
+        return Ok(Array.Empty<Note>());
+    }
 }
