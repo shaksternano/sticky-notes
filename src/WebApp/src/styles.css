@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@theme {
+    --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer components {
+    .note { @apply min-h-56 rounded-2xl p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg; }
+    .note-yellow { @apply bg-amber-200; }
+    .note-blue { @apply bg-sky-200; }
+    .note-pink { @apply bg-rose-200; }
+}
