@@ -3,7 +3,7 @@ export interface NoteProps {
     color: string;
 }
 
-export default function Note(props: NoteProps) {
+export default function NoteCard(props: NoteProps) {
     return (
         <article class={`note note-${props.color}`}>
             <span class="text-2xl">

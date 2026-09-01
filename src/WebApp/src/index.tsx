@@ -1,6 +1,7 @@
 import { render } from "solid-js/web";
 import "./styles.css";
-import Note from "./components/Note.tsx";
+import NoteCard from "./components/NoteCard.tsx";
+import type {Note} from "./types.ts";
 
 const starterNotes: Note[] = [
     { id: 1, text: "Welcome to Sticky Notes!", color: "yellow" },
@@ -27,7 +28,7 @@ function App() {
                 </header>
                 <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                     {starterNotes.map((note) =>
-                        <Note text={note.text} color={note.color} />
+                        <NoteCard text={note.text} color={note.color} />
                     )}
                 </div>
             </section>
