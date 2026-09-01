@@ -9,10 +9,10 @@ using StickyNotes.API.Data;
 
 #nullable disable
 
-namespace StickyNotes.API.Data.Migrations
+namespace StickyNotes.API.Migrations
 {
     [DbContext(typeof(StickyNotesDbContext))]
-    [Migration("20260831183657_InitialCreate")]
+    [Migration("20260901200624_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -27,18 +27,13 @@ namespace StickyNotes.API.Data.Migrations
 
             modelBuilder.Entity("StickyNotes.API.Models.Note", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Content")
                         .IsRequired()
                         .HasColumnType("text");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
 
