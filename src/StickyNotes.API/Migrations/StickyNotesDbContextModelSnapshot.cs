@@ -28,7 +28,7 @@ namespace StickyNotes.API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<string>("Content")
+                    b.Property<string>("Text")
                         .IsRequired()
                         .HasColumnType("text");
 

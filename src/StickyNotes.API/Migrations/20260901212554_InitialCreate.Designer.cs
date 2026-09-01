@@ -12,7 +12,7 @@ using StickyNotes.API.Data;
 namespace StickyNotes.API.Migrations
 {
     [DbContext(typeof(StickyNotesDbContext))]
-    [Migration("20260901200624_InitialCreate")]
+    [Migration("20260901212554_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -31,7 +31,7 @@ namespace StickyNotes.API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<string>("Content")
+                    b.Property<string>("Text")
                         .IsRequired()
                         .HasColumnType("text");
 

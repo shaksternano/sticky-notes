@@ -33,7 +33,7 @@ public sealed class NotesController(StickyNotesDbContext db) : ControllerBase
     {
         var note = new Note
         {
-            Content = request.Content
+            Text = request.Content
         };
 
         db.Notes.Add(note);
@@ -52,7 +52,7 @@ public sealed class NotesController(StickyNotesDbContext db) : ControllerBase
 
         if (note is null) return NotFound();
 
-        note.Content = request.Content;
+        note.Text = request.Content;
         await db.SaveChangesAsync(cancellationToken);
 
         return NoContent();
