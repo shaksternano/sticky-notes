@@ -280,3 +280,8 @@ node_modules
 dist
 *.local
 src/StickyNotes.Api/wwwroot/
+
+# AI Agents
+.codex/
+.claude/
+.junie/
