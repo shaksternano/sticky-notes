@@ -12,7 +12,7 @@ An ASP.NET Core 10 API with a Solid.js, TypeScript, pnpm, and Tailwind frontend.
 Start the API and frontend in separate terminals:
 
 ```bash
-dotnet run --project src/StickyNotes.Api --urls http://localhost:5000
+dotnet run --project src/StickyNotes.Api
 cd src/WebApp
 pnpm install
 pnpm dev
