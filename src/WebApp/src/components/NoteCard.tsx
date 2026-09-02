@@ -5,7 +5,10 @@ export interface NoteProps {
 
 export default function NoteCard(props: NoteProps) {
     return (
-        <article class={`note note-${props.color}`}>
+        <article
+            class="min-h-56 rounded-2xl p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+            style={{"background-color": `#${props.color}`}}
+        >
             <span class="text-2xl">
                 ✦
             </span>
