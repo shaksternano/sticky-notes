@@ -12,7 +12,11 @@ public sealed class NotesController(StickyNotesDbContext db) : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Note>>> Get(CancellationToken cancellationToken)
     {
-        return Ok(await db.Notes.AsNoTracking().ToListAsync(cancellationToken));
+        return Ok(await db.Notes
+            .AsNoTracking()
+            .OrderByDescending(note => note.Id)
+            .ToListAsync(cancellationToken)
+        );
     }
 
     [HttpGet("{id:guid}")]
