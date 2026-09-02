@@ -11,9 +11,9 @@ function App() {
 
     return (
         <main class="min-h-screen bg-slate-50 px-6 py-12 text-slate-900">
-            <section class="mx-auto max-w-5xl">
-                <header class="mb-10 flex items-end justify-between">
-                    <div>
+            <section class="max-w-5xl mx-auto flex flex-col gap-10">
+                <header class="sticky top-0 z-10 flex items-end justify-between">
+                    <div class="-m-4 p-4 rounded-2xl bg-slate-50">
                         <p class="mb-2 text-sm font-semibold uppercase tracking-widest text-indigo-600">
                             Your workspace
                         </p>
