@@ -4,7 +4,7 @@ namespace StickyNotes.API.Models;
 
 public class Note
 {
-    public Guid Id { get; set; } = Guid.CreateVersion7();
+    public Guid Id { get; private set; } = Guid.CreateVersion7();
 
     public string Text { get; set; } = string.Empty;
 
