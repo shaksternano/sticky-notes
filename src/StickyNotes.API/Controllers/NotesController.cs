@@ -51,7 +51,8 @@ public sealed class NotesController(StickyNotesDbContext db) : ControllerBase
     public async Task<IActionResult> Patch(
         Guid id,
         PatchNoteRequest request,
-        CancellationToken cancellationToken)
+        CancellationToken cancellationToken
+    )
     {
         var note = await db.Notes.SingleOrDefaultAsync(note => note.Id == id, cancellationToken);
 
