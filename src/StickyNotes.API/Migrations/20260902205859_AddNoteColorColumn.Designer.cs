@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using StickyNotes.API.Data;
@@ -11,9 +12,11 @@ using StickyNotes.API.Data;
 namespace StickyNotes.API.Migrations
 {
     [DbContext(typeof(StickyNotesDbContext))]
-    partial class StickyNotesDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260902205859_AddNoteColorColumn")]
+    partial class AddNoteColorColumn
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

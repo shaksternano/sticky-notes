@@ -33,7 +33,8 @@ public sealed class NotesController(StickyNotesDbContext db) : ControllerBase
     {
         var note = new Note
         {
-            Text = request.Content
+            Text = request.Text,
+            Color = request.Color
         };
 
         db.Notes.Add(note);
@@ -42,17 +43,20 @@ public sealed class NotesController(StickyNotesDbContext db) : ControllerBase
         return CreatedAtAction(nameof(GetById), new { id = note.Id }, note);
     }
 
-    [HttpPut("{id:guid}")]
-    public async Task<IActionResult> Update(
+    [HttpPatch("{id:guid}")]
+    public async Task<IActionResult> Patch(
         Guid id,
-        UpdateNoteRequest request,
+        PatchNoteRequest request,
         CancellationToken cancellationToken)
     {
         var note = await db.Notes.SingleOrDefaultAsync(note => note.Id == id, cancellationToken);
 
         if (note is null) return NotFound();
+        if (request.Text is null && request.Color is null) return BadRequest("At least one field must be provided.");
 
-        note.Text = request.Content;
+        if (request.Text is not null) note.Text = request.Text;
+        if (request.Color is not null) note.Color = request.Color;
+
         await db.SaveChangesAsync(cancellationToken);
 
         return NoContent();
@@ -72,6 +76,12 @@ public sealed class NotesController(StickyNotesDbContext db) : ControllerBase
     }
 }
 
-public sealed record CreateNoteRequest(string Content);
+public sealed record CreateNoteRequest(
+    string Text,
+    string Color
+);
 
-public sealed record UpdateNoteRequest(string Content);
+public sealed record PatchNoteRequest(
+    string? Text = null,
+    string? Color = null
+);

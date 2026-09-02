@@ -1,8 +1,7 @@
-﻿using StickyNotes.API.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using StickyNotes.API.Models;
 
 namespace StickyNotes.API.Data;
-
-using Microsoft.EntityFrameworkCore;
 
 public class StickyNotesDbContext(DbContextOptions<StickyNotesDbContext> options) : DbContext(options)
 {
