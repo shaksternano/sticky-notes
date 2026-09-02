@@ -37,7 +37,7 @@ public sealed class NotesController(StickyNotesDbContext db) : ControllerBase
     {
         var note = new Note
         {
-            Text = request.Text,
+            Text = request.Text.Trim(),
             Color = request.Color
         };
 
@@ -59,7 +59,7 @@ public sealed class NotesController(StickyNotesDbContext db) : ControllerBase
         if (note is null) return NotFound();
         if (request.Text is null && request.Color is null) return BadRequest("At least one field must be provided.");
 
-        if (request.Text is not null) note.Text = request.Text;
+        if (request.Text is not null) note.Text = request.Text.Trim();
         if (request.Color is not null) note.Color = request.Color;
 
         await db.SaveChangesAsync(cancellationToken);
